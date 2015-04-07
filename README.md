@@ -7,13 +7,7 @@
 
 ## 
 A small class for lateral menu with 3D effect
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/3TiyI1p7Q1U/0.jpg)](https://www.youtube.com/watch?v=3TiyI1p7Q1U)
-
-## Usage
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
+[![Video](http://img.youtube.com/vi/3TiyI1p7Q1U/0.jpg)](https://www.youtube.com/watch?v=3TiyI1p7Q1U)
 
 ## Installation
 
@@ -23,6 +17,58 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "SlideMenu3D"
 ```
+
+Or download the project and export `HKSlideMenu3DController.{h/m}` in your project
+
+## Usage
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+
+Import HKSlideMenu3DController class in you view
+
+```objective-c
+#import <HKSlideMenu3DController.h>
+```
+
+retain the class
+
+```objective-c
+@property (strong, nonatomic)  HKSlideMenu3DController *slideMenuVC;`
+```
+
+now init the class y set UIViewControlls for menu y center view
+
+```objective-c
+self.slideMenuVC = [[HKSlideMenu3DController alloc] init];
+self.slideMenuVC.view.frame =  [[UIScreen mainScreen] bounds];
+self.slideMenuVC.menuViewController = myMenuViewController;
+self.slideMenuVC.mainViewController = myMianViewController;
+```
+
+also you can set background image
+
+```objective-c
+self.slideMenuVC.backgroundImage = [UIImage imageNamed:@"cloud"];
+```
+
+you can change the contentMode for the image
+
+```objective-c
+self.slideMenuVC.backgroundImageContentMode = UIViewContentModeTopLeft;
+```
+for open and close menu call toogleMenu, this function determines the current state of the menu
+
+```objective-c
+[self.slideMenuVC toggleMenu];
+```
+
+for replace the mainView, only need set a new `UIViewController`
+
+```objective-c
+self.slideMenuVC.mainViewController = anotherViewController;
+```
+
 
 ## Author
 
