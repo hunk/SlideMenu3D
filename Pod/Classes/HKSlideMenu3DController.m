@@ -291,7 +291,6 @@
                              
                          }];
         
-        
         CGFloat newAngle = 0.0;
         CGFloat newAlpha = 1.0;
         if (closeMenu) {
