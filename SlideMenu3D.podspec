@@ -1,18 +1,9 @@
-#
-# Be sure to run `pod lib lint SlideMenu3D.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# Any lines starting with a # are optional, but encouraged
-#
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = "SlideMenu3D"
   s.version          = "0.1.0"
   s.summary          = "A small class for lateral menu with 3D effect."
   s.description      = <<-DESC
-                       A small class for lateral menu with 3D effect
+                       A small class for lateral menu with 3D effect.
 
                        DESC
   s.homepage         = "https://github.com/hunk/SlideMenu3D"
