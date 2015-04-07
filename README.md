@@ -5,6 +5,10 @@
 [![License](https://img.shields.io/cocoapods/l/SlideMenu3D.svg?style=flat)](http://cocoapods.org/pods/SlideMenu3D)
 [![Platform](https://img.shields.io/cocoapods/p/SlideMenu3D.svg?style=flat)](http://cocoapods.org/pods/SlideMenu3D)
 
+## 
+A small class for lateral menu with 3D effect
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/3TiyI1p7Q1U/0.jpg)](https://www.youtube.com/watch?v=3TiyI1p7Q1U)
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
