@@ -1,6 +1,6 @@
 # SlideMenu3D
 
-[![CI Status](http://img.shields.io/travis/hunk/SlideMenu3D.svg?style=flat)](https://travis-ci.org/@hunk/SlideMenu3D)
+[![CI Status](http://img.shields.io/travis/hunk/SlideMenu3D.svg?style=flat)](https://travis-ci.org/hunk/SlideMenu3D)
 [![Version](https://img.shields.io/cocoapods/v/SlideMenu3D.svg?style=flat)](http://cocoapods.org/pods/SlideMenu3D)
 [![License](https://img.shields.io/cocoapods/l/SlideMenu3D.svg?style=flat)](http://cocoapods.org/pods/SlideMenu3D)
 [![Platform](https://img.shields.io/cocoapods/p/SlideMenu3D.svg?style=flat)](http://cocoapods.org/pods/SlideMenu3D)
