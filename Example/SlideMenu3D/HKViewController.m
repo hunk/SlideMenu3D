@@ -7,6 +7,8 @@
 //
 
 #import "HKViewController.h"
+#import "HKAppDelegate.h"
+#import "HKSubViewController.h"
 
 @interface HKViewController ()
 
@@ -14,10 +16,13 @@
 
 @implementation HKViewController
 
-- (void)viewDidLoad
-{
+- (IBAction)menuAction:(id)sender {
+    [[HKAppDelegate mainDelegate].slideMenuVC toggleMenu];
+}
+
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning
@@ -25,5 +30,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)addSubviewAction:(UIButton *)sender {
+    
+
+    HKSubViewController *subVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HKSubViewController"];
+    [self.navigationController pushViewController:subVC animated:YES];
+}
+
 
 @end

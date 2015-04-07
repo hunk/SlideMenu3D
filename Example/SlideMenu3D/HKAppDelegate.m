@@ -8,11 +8,46 @@
 
 #import "HKAppDelegate.h"
 
+#import "HKMenuView.h"
+#import "HKAlternativeView.h"
+
+@interface HKAppDelegate (){
+    
+    HKMenuView *menuVC;
+    UINavigationController *navMain;
+    HKAlternativeView *altVC;
+}
+
+@end
+
 @implementation HKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    self.slideMenuVC = [[HKSlideMenu3DController alloc] init];
+    self.slideMenuVC.view.frame =  [[UIScreen mainScreen] bounds];
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle: nil];
+    
+    menuVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"HKMenuView"];
+    menuVC.view.backgroundColor = [UIColor clearColor];
+    navMain = (UINavigationController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HKMainNavController"];
+
+    self.slideMenuVC.menuViewController = menuVC;
+    
+    self.slideMenuVC.mainViewController = navMain;
+    
+    self.slideMenuVC.backgroundImage = [UIImage imageNamed:@"cloud"];
+    self.slideMenuVC.backgroundImageContentMode = UIViewContentModeTopLeft;
+
+    
+    [self.window setRootViewController:self.slideMenuVC];
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 							
@@ -41,6 +76,30 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
++ (HKAppDelegate *)mainDelegate {
+    return (HKAppDelegate *)[UIApplication sharedApplication].delegate;
+}
+
+- (void)setFirstView{
+    
+    if (!navMain) {
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle: nil];
+        navMain = (UINavigationController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HKMainNavController"];
+    }
+    
+    self.slideMenuVC.mainViewController = navMain;
+    
+}
+
+- (void)setSecondView{
+    
+    if (!altVC) {
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle: nil];
+        altVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"HKAlternativeView"];
+    }
+    self.slideMenuVC.mainViewController = altVC;
 }
 
 @end

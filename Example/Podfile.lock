@@ -1,0 +1,14 @@
+PODS:
+  - SlideMenu3D (0.1.0)
+
+DEPENDENCIES:
+  - SlideMenu3D (from `../`)
+
+EXTERNAL SOURCES:
+  SlideMenu3D:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SlideMenu3D: abe17525a028ee4650fc8eab7d6cebc034f8ca53
+
+COCOAPODS: 0.35.0
