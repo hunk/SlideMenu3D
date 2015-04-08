@@ -6,8 +6,9 @@
 [![Platform](https://img.shields.io/cocoapods/p/SlideMenu3D.svg?style=flat)](http://cocoapods.org/pods/SlideMenu3D)
 
 ## 
-A small class for lateral menu with 3D effect
-[![Video](http://img.youtube.com/vi/3TiyI1p7Q1U/0.jpg)](https://www.youtube.com/watch?v=3TiyI1p7Q1U)
+A small class for lateral menu with 3D effect, support tap gesture when el menu is open and tap gesture all time, support device orientation.
+
+[![Video](http://img.youtube.com/vi/1UyrVDaNDIg/0.jpg)](https://www.youtube.com/watch?v=1UyrVDaNDIg)
 
 ## Installation
 
@@ -68,6 +69,10 @@ for replace the mainView, only need set a new `UIViewController`
 ```objective-c
 self.slideMenuVC.mainViewController = anotherViewController;
 ```
+
+## Images
+
+images of menu by Steven Kuiper https://www.iconfinder.com/Verzint
 
 
 ## Author
