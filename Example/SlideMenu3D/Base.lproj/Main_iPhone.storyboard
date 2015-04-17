@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -33,10 +33,32 @@
                                     <segue destination="MGs-Od-dvx" kind="show" identifier="moriCosa" id="Svx-E4-jCm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YrE-6P-OGh">
+                                <rect key="frame" x="16" y="453" width="136" height="30"/>
+                                <state key="normal" title="Enable Pan Gesture">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="panAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tYo-Qu-arO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bng-jH-xti">
+                                <rect key="frame" x="444" y="453" width="140" height="30"/>
+                                <state key="normal" title="Disable Pan Gesture">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="panAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="IuJ-DX-72k"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bUA-9L-kfq" firstAttribute="top" secondItem="fc2-Hj-6Jb" secondAttribute="bottom" constant="20" id="3j7-Kb-sge"/>
+                            <constraint firstItem="YrE-6P-OGh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="5Za-gu-NvN"/>
+                            <constraint firstItem="bng-jH-xti" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="PwU-UO-Kvz"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="bng-jH-xti" secondAttribute="bottom" constant="117" id="TOZ-yv-ugT"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="YrE-6P-OGh" secondAttribute="bottom" constant="117" id="Uvq-ga-OmR"/>
                             <constraint firstAttribute="centerY" secondItem="fc2-Hj-6Jb" secondAttribute="centerY" id="aYb-sv-Om9"/>
                             <constraint firstAttribute="centerX" secondItem="fc2-Hj-6Jb" secondAttribute="centerX" id="nAN-B6-GcB"/>
                             <constraint firstAttribute="centerX" secondItem="bUA-9L-kfq" secondAttribute="centerX" id="wsW-nv-pyL"/>
@@ -130,11 +152,35 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXE-Pj-rga">
+                                <rect key="frame" x="16" y="535" width="136" height="30"/>
+                                <state key="normal" title="Enable Pan Gesture">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="panAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="SB2-Xa-GDY"/>
+                                    <action selector="panAction:" destination="MGs-Od-dvx" eventType="touchUpInside" id="nfL-xu-4WC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFN-16-yCX">
+                                <rect key="frame" x="444" y="535" width="140" height="30"/>
+                                <state key="normal" title="Disable Pan Gesture">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="panAction:" destination="MGs-Od-dvx" eventType="touchUpInside" id="GWq-KG-Wcd"/>
+                                    <action selector="panAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HJF-ny-fSc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xZE-GU-Thu" firstAttribute="top" secondItem="wXE-Pj-rga" secondAttribute="bottom" constant="35" id="Gaf-Hq-VAs"/>
                             <constraint firstAttribute="centerY" secondItem="YOw-Qg-w6u" secondAttribute="centerY" id="OpG-QV-FdS"/>
                             <constraint firstAttribute="centerX" secondItem="YOw-Qg-w6u" secondAttribute="centerX" id="ULn-Bk-ZSo"/>
+                            <constraint firstItem="gFN-16-yCX" firstAttribute="trailing" secondItem="AKr-IM-1bw" secondAttribute="trailingMargin" id="aV9-LK-s45"/>
+                            <constraint firstItem="wXE-Pj-rga" firstAttribute="leading" secondItem="AKr-IM-1bw" secondAttribute="leadingMargin" id="jnF-c2-bRP"/>
+                            <constraint firstItem="xZE-GU-Thu" firstAttribute="top" secondItem="gFN-16-yCX" secondAttribute="bottom" constant="35" id="z0W-39-Akc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Second View" id="W4x-wa-MMf"/>

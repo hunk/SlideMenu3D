@@ -38,5 +38,13 @@
     [self.navigationController pushViewController:subVC animated:YES];
 }
 
+- (IBAction)panAction:(UIButton *)sender {
+    NSNumber *some = [NSNumber numberWithInteger:sender.tag];
+    BOOL valuePan = [some boolValue];
+    [[HKAppDelegate mainDelegate].slideMenuVC setEnablePan:valuePan];
+}
+
+
+
 
 @end

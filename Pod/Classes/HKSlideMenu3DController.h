@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UIViewController *mainViewController;
 @property (nonatomic, strong) UIImage *backgroundImage;
 @property (nonatomic) UIViewContentMode backgroundImageContentMode;
+@property (nonatomic, assign) BOOL enablePan;
 
 - (void)toggleMenu;
 

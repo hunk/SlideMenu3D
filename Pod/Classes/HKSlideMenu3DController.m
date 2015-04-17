@@ -58,9 +58,8 @@
     _mainContainer.view.backgroundColor = [UIColor redColor];
     [self.view addSubview:_mainContainer.view];
     
-    _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
-    _panGestureRecognizer.delegate = self;
-    [_mainContainer.view addGestureRecognizer:_panGestureRecognizer];
+    [self addPanGestures];
+   
     
 }
 
@@ -188,7 +187,7 @@
 }
 
 
-#pragma mark - Gestures
+#pragma mark - Tap Gestures tapMainAction
 - (void)addTapGestures {
     if (!self.tapGestureRecognizer) {
         self.mainViewController.view.userInteractionEnabled = NO;
@@ -207,6 +206,30 @@
     [self closeMenu];
 }
 
+
+#pragma mark - Pan Gesture Recognizer
+-(void)setEnablePan:(BOOL)enablePan{
+    _enablePan = enablePan;
+    if (_enablePan) {
+        [self addPanGestures];
+    }else{
+        [self removePanGestures];
+    }
+}
+
+- (void)addPanGestures {
+    if (!self.panGestureRecognizer) {
+        self.panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
+        self.panGestureRecognizer.delegate = self;
+        [_mainContainer.view addGestureRecognizer:self.panGestureRecognizer];
+    }
+}
+
+- (void)removePanGestures {
+    [_mainContainer.view removeGestureRecognizer:self.panGestureRecognizer];
+    self.panGestureRecognizer = nil;
+}
+
 - (void)panDetected:(UIPanGestureRecognizer *)aPanRecognizer{
     
     CGPoint translation = [aPanRecognizer translationInView:aPanRecognizer.view];
@@ -216,14 +239,14 @@
         self.draggingPoint = translation;
     }else if (aPanRecognizer.state == UIGestureRecognizerStateChanged) {
         
-        CGFloat offset = fabsf(self.draggingPoint.x - translation.x);
+        CGFloat offset = fabs(self.draggingPoint.x - translation.x);
         
         if (offset == 0) {
             return;
         }
         
         self.draggingPoint = translation;
-
+        
         if (velocity.x <= 0) {
             offset = -offset;
         }

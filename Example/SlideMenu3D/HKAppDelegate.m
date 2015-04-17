@@ -42,6 +42,8 @@
     
     self.slideMenuVC.backgroundImage = [UIImage imageNamed:@"cloud"];
     self.slideMenuVC.backgroundImageContentMode = UIViewContentModeTopLeft;
+    
+    self.slideMenuVC.enablePan = NO;
 
     
     [self.window setRootViewController:self.slideMenuVC];
