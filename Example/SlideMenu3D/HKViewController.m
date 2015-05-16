@@ -44,7 +44,13 @@
     [[HKAppDelegate mainDelegate].slideMenuVC setEnablePan:valuePan];
 }
 
+- (NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskAll;
+}
 
+- (BOOL)shouldAutorotate {
+    return YES;
+}
 
 
 @end

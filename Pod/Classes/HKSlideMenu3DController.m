@@ -25,6 +25,7 @@
 
 - (void)didRotate:(NSNotification *)notification {
     
+    
     CGRect fMain = _mainContainer.view.frame;
     
     if (CGRectGetMinX(fMain) == 0) {
@@ -51,12 +52,16 @@
     _menuContainer.view.layer.anchorPoint = CGPointMake(1.0, 0.5);
     _menuContainer.view.frame = self.view.bounds;
     _menuContainer.view.backgroundColor = [UIColor clearColor];
+    [self addChildViewController:_menuContainer];
     [self.view addSubview:_menuContainer.view];
+    [_menuContainer didMoveToParentViewController:self];
     
     _mainContainer = [[UIViewController alloc] init];
     _mainContainer.view.frame = self.view.bounds;
     _mainContainer.view.backgroundColor = [UIColor redColor];
+    [self addChildViewController:_mainContainer];
     [self.view addSubview:_mainContainer.view];
+    [_mainContainer didMoveToParentViewController:self];
     
     [self addPanGestures];
    
@@ -78,15 +83,40 @@
 
 
 - (void)setMenuViewController:(UIViewController *)menuViewController {
+    
+    if (_menuViewController) {
+        [_menuViewController willMoveToParentViewController:nil];
+        [_menuViewController removeFromParentViewController];
+        [_menuViewController.view removeFromSuperview];
+    }
+    
     _menuViewController = menuViewController;
     _menuViewController.view.frame = self.view.bounds;
+    [_menuContainer addChildViewController:_menuViewController];
     [_menuContainer.view addSubview:menuViewController.view];
+    [_menuContainer didMoveToParentViewController:_menuViewController];
 }
 
 - (void)setMainViewController:(UIViewController *)mainViewController {
+    
+    if (_mainViewController == mainViewController) {
+        if (CGRectGetMinX(_mainContainer.view.frame) == _distanceOpenMenu) {
+            [self closeMenu];
+        }
+    }
+    
+    if (_mainViewController) {
+        [_mainViewController willMoveToParentViewController:nil];
+        [_mainViewController removeFromParentViewController];
+        [_mainViewController.view removeFromSuperview];
+    }
+    
     _mainViewController = mainViewController;
     _mainViewController.view.frame = self.view.bounds;
+    [_mainContainer addChildViewController:_mainViewController];
     [_mainContainer.view addSubview:_mainViewController.view];
+    [_mainViewController didMoveToParentViewController:_mainContainer];
+    [UIViewController attemptRotationToDeviceOrientation];
     
     if (CGRectGetMinX(_mainContainer.view.frame) == _distanceOpenMenu) {
         [self closeMenu];
@@ -337,6 +367,14 @@
                              
                          }];
     }
+}
+
+- (NSUInteger)supportedInterfaceOrientations{
+    if (_mainViewController) {
+        return [_mainViewController supportedInterfaceOrientations];
+    }
+    
+    return UIInterfaceOrientationMaskAll;
 }
 
 @end

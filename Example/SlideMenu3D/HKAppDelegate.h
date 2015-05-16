@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <HKSlideMenu3DController.h>
+#import "HKRotationNavigationController.h"
 
 @interface HKAppDelegate : UIResponder <UIApplicationDelegate>
 

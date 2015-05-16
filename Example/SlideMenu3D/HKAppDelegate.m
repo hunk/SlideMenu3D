@@ -14,7 +14,7 @@
 @interface HKAppDelegate (){
     
     HKMenuView *menuVC;
-    UINavigationController *navMain;
+    HKRotationNavigationController *navMain;
     HKAlternativeView *altVC;
 }
 
@@ -34,7 +34,7 @@
     
     menuVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"HKMenuView"];
     menuVC.view.backgroundColor = [UIColor clearColor];
-    navMain = (UINavigationController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HKMainNavController"];
+    navMain = (HKRotationNavigationController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HKMainNavController"];
 
     self.slideMenuVC.menuViewController = menuVC;
     
@@ -88,10 +88,17 @@
     
     if (!navMain) {
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle: nil];
-        navMain = (UINavigationController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HKMainNavController"];
+        navMain = (HKRotationNavigationController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HKMainNavController"];
     }
     
     self.slideMenuVC.mainViewController = navMain;
+    
+//    if ([UIViewController class]) {
+//        
+//        if ( !UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)  ) {
+//            [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIDeviceOrientationPortrait] forKey:@"orientation"];
+//        }
+//    }
     
 }
 
@@ -102,6 +109,13 @@
         altVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"HKAlternativeView"];
     }
     self.slideMenuVC.mainViewController = altVC;
+    // iOS8 has this class only
+    if ([UIViewController class]) {
+        
+        if ( !UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)  ) {
+            [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIDeviceOrientationLandscapeLeft] forKey:@"orientation"];
+        }
+    }
 }
 
 @end

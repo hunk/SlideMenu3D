@@ -76,12 +76,13 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+
     if (indexPath.row % 2) {
         [[HKAppDelegate mainDelegate] setSecondView];
     }else{
         [[HKAppDelegate mainDelegate] setFirstView];
     }
 }
+
 
 @end

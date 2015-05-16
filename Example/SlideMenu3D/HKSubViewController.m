@@ -34,4 +34,13 @@
     [[HKAppDelegate mainDelegate].slideMenuVC setEnablePan:valuePan];
 }
 
+-(void)willRotateToInterfaceOrientation: (UIInterfaceOrientation)orientation duration:(NSTimeInterval)duration {
+    
+}
+
+- (NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskPortrait;
+}
+
+
 @end
