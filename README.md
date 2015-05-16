@@ -70,6 +70,29 @@ for replace the mainView, only need set a new `UIViewController`
 self.slideMenuVC.mainViewController = anotherViewController;
 ```
 
+## Enable/disable Pan Gesture Recognizer
+
+```objective-c
+[self.slideMenuVC setEnablePan:true];
+[self.slideMenuVC setEnablePan:false];
+```
+
+## Notes
+After version 0.1.2, we add hierarchy for container’s view, the rotation depends of you `mainViewController`.
+
+set you orientations in your `UIViewController` example:
+
+```objective-c
+- (NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskPortrait;
+}
+```
+
+if you need force rotate for specific `UIViewController` check `HKAppDelegate.m` method `setSecondView`
+
+if you `mainViewController` is a `UINavigationController` and you want your `UIViewController` handle the rotation values, you must create a subclass of `UINavigationController` just like `HKRotationNavigationController` in example project
+
+
 ## Images
 
 images of menu by Steven Kuiper https://www.iconfinder.com/Verzint
