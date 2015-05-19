@@ -58,7 +58,7 @@
     
     _mainContainer = [[UIViewController alloc] init];
     _mainContainer.view.frame = self.view.bounds;
-    _mainContainer.view.backgroundColor = [UIColor redColor];
+    _mainContainer.view.backgroundColor = [UIColor clearColor];
     [self addChildViewController:_mainContainer];
     [self.view addSubview:_mainContainer.view];
     [_mainContainer didMoveToParentViewController:self];
