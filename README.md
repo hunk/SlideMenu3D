@@ -8,9 +8,7 @@
 ## 
 A small class for lateral menu with 3D effect, support tap gesture when el menu is open and tap gesture all time, support device orientation.
 
-<iframe class="imgur-embed" width="100%" height="720" frameborder="0" src="http://i.imgur.com/dlrUXTW.gifv#embed"></iframe>
-
-[ver video en youtube](https://www.youtube.com/watch?v=1UyrVDaNDIg)
+[![Video](http://img.youtube.com/vi/1UyrVDaNDIg/0.jpg)](https://www.youtube.com/watch?v=1UyrVDaNDIg)
 
 ## Installation
 
