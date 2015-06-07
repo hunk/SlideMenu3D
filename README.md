@@ -77,6 +77,26 @@ self.slideMenuVC.mainViewController = anotherViewController;
 [self.slideMenuVC setEnablePan:false];
 ```
 
+## Delegate Methods
+
+SlideMenu3D have some methods for tell you when the menu move ( will | did ) ( open | close ), these methods are:
+
+```objetive-c
+-(void)willOpenMenu;
+-(void)didOpenMenu;
+-(void)willCloseMenu;
+-(void)didCloseMenu;
+```
+
+add ```HKSlideMenu3DControllerDelegate``` in you controller and set delegate
+
+```objective-c
+self.slideMenuVC.delegate = self;
+```
+
+note: if you need more detail check ```HKAppDelegate.m``` and ```HKMenuView.{h/m}```
+
+
 ## Notes
 After version 0.1.2, we add hierarchy for container’s view, the rotation depends of you `mainViewController`.
 

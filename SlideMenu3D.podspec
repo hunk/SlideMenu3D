@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SlideMenu3D"
-  s.version          = "0.1.3"
+  s.version          = "0.1.4"
   s.summary          = "A small class for lateral menu with 3D effect."
   s.description      = <<-DESC
                        A small class for lateral menu with 3D effect.

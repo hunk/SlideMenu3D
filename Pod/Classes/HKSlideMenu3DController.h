@@ -8,10 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
+@class HKSlideMenu3DController;
+@protocol HKSlideMenu3DControllerDelegate <NSObject>
+
+@optional
+
+-(void)willOpenMenu;
+-(void)didOpenMenu;
+
+//close
+-(void)willCloseMenu;
+-(void)didCloseMenu;
+
+
+
+@end
+
+
 @interface HKSlideMenu3DController : UIViewController<UIGestureRecognizerDelegate>
 
 #pragma mark - Managed View Controllers
 
+@property (nonatomic, weak) id<HKSlideMenu3DControllerDelegate> delegate;
 
 @property (nonatomic, strong) UIViewController *menuViewController;
 @property (nonatomic, strong) UIViewController *mainViewController;

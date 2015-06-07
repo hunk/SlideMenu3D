@@ -11,7 +11,7 @@
 #import "HKMenuView.h"
 #import "HKAlternativeView.h"
 
-@interface HKAppDelegate (){
+@interface HKAppDelegate ()<HKSlideMenu3DControllerDelegate>{
     
     HKMenuView *menuVC;
     HKRotationNavigationController *navMain;
@@ -42,8 +42,11 @@
     
     self.slideMenuVC.backgroundImage = [UIImage imageNamed:@"cloud"];
     self.slideMenuVC.backgroundImageContentMode = UIViewContentModeTopLeft;
-    
     self.slideMenuVC.enablePan = NO;
+    
+    //Set delegate methods in currect controller or another class, for example Menu
+//    self.slideMenuVC.delegate = self;
+    self.slideMenuVC.delegate = menuVC.self;
 
     
     [self.window setRootViewController:self.slideMenuVC];
@@ -116,6 +119,23 @@
             [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIDeviceOrientationLandscapeLeft] forKey:@"orientation"];
         }
     }
+}
+
+#pragma mark HKSlideMenu3DControllerDelegate methods
+-(void)willOpenMenu{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+-(void)didOpenMenu{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+-(void)willCloseMenu{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+-(void)didCloseMenu{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
 @end

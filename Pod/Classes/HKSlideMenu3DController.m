@@ -141,6 +141,10 @@
 }
 
 -(void)openMenu{
+    if ( self.delegate && [self.delegate respondsToSelector:@selector(willOpenMenu)]) {
+        [self.delegate willOpenMenu];
+    }
+    
     [self addTapGestures];
     
     CGRect fMain = _mainContainer.view.frame;
@@ -163,7 +167,9 @@
                      animations:^{
                          _mainContainer.view.frame = fMain;
                      } completion:^(BOOL finished) {
-                         
+                         if ( self.delegate && [self.delegate respondsToSelector:@selector(didOpenMenu)]) {
+                             [self.delegate didOpenMenu];
+                         }
                      }];
     
     [UIView animateWithDuration:0.3
@@ -182,6 +188,14 @@
 
 -(void)closeMenu{
     
+    double delayInSeconds = 0.2;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        if ( self.delegate && [self.delegate respondsToSelector:@selector(willCloseMenu)]) {
+            [self.delegate  willCloseMenu];
+        }
+    });
+    
     CGRect fMain = _mainContainer.view.frame;
     fMain.origin.x = 0;
     
@@ -196,6 +210,9 @@
                          
                      } completion:^(BOOL finished) {
                          [self removeTapGestures];
+                         if ( self.delegate && [self.delegate respondsToSelector:@selector(didCloseMenu)]) {
+                             [self.delegate didCloseMenu];
+                         }
                      }];
     
     

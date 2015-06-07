@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <HKSlideMenu3DController.h>
 
-@interface HKMenuView : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface HKMenuView : UIViewController<UITableViewDataSource,UITableViewDelegate,HKSlideMenu3DControllerDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end
