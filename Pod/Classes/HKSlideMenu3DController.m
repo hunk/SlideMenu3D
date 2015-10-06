@@ -386,12 +386,22 @@
     }
 }
 
-- (NSUInteger)supportedInterfaceOrientations{
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
+- (NSUInteger)supportedInterfaceOrientations {
     if (_mainViewController) {
         return [_mainViewController supportedInterfaceOrientations];
     }
     
     return UIInterfaceOrientationMaskAll;
 }
+#else
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    if (_mainViewController) {
+        return [_mainViewController supportedInterfaceOrientations];
+    }
+    
+    return UIInterfaceOrientationMaskAll;
+}
+#endif
 
 @end

@@ -21,11 +21,20 @@
         return [super shouldAutorotate];
 }
 
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
 - (NSUInteger)supportedInterfaceOrientations {
     if (self.topViewController != nil)
         return [self.topViewController supportedInterfaceOrientations];
     else
         return [super supportedInterfaceOrientations];
 }
+#else
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    if (self.topViewController != nil)
+        return [self.topViewController supportedInterfaceOrientations];
+    else
+        return [super supportedInterfaceOrientations];
+}
+#endif
 
 @end

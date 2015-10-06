@@ -1,7 +1,26 @@
-# OS X
+#####=== OSX ===#####
 .DS_Store
+.AppleDouble
+.LSOverride
 
-# Xcode
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+#####=== Xcode ===#####
 build/
 *.pbxuser
 !default.pbxuser
@@ -13,11 +32,9 @@ build/
 !default.perspectivev3
 xcuserdata
 *.xccheckout
-profile
 *.moved-aside
 DerivedData
-*.hmap
-*.ipa
+*.xcuserstate
 
 # Bundler
 .bundle

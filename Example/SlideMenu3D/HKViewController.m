@@ -44,9 +44,15 @@
     [[HKAppDelegate mainDelegate].slideMenuVC setEnablePan:valuePan];
 }
 
-- (NSUInteger)supportedInterfaceOrientations{
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
+- (NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskAll;
 }
+#else
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAll;
+}
+#endif
 
 - (BOOL)shouldAutorotate {
     return YES;

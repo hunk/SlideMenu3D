@@ -26,6 +26,7 @@
 		B48C496B1AD341D900C36980 /* HKMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = B48C496A1AD341D900C36980 /* HKMenuView.m */; };
 		B48C496E1AD3511000C36980 /* HKAlternativeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B48C496D1AD3511000C36980 /* HKAlternativeView.m */; };
 		B48C49711AD3617B00C36980 /* HKSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B48C49701AD3617B00C36980 /* HKSubViewController.m */; };
+		B49B13601BC43C98006FFEBC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49B135F1BC43C98006FFEBC /* LaunchScreen.xib */; };
 		D23F925A25333CF6AA74474D /* libPods-SlideMenu3D.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 753329C4741927FAEA82643E /* libPods-SlideMenu3D.a */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		B48C496D1AD3511000C36980 /* HKAlternativeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKAlternativeView.m; sourceTree = "<group>"; };
 		B48C496F1AD3617B00C36980 /* HKSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKSubViewController.h; sourceTree = "<group>"; };
 		B48C49701AD3617B00C36980 /* HKSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKSubViewController.m; sourceTree = "<group>"; };
+		B49B135F1BC43C98006FFEBC /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		C230AF0BDBF362714B143CA6 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C815948D2787C59F5DF38F53 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +159,7 @@
 				B48C49701AD3617B00C36980 /* HKSubViewController.m */,
 				B43F6DE31B07D4AD002C2EE1 /* HKRotationNavigationController.h */,
 				B43F6DE41B07D4AD002C2EE1 /* HKRotationNavigationController.m */,
+				B49B135F1BC43C98006FFEBC /* LaunchScreen.xib */,
 			);
 			path = SlideMenu3D;
 			sourceTree = "<group>";
@@ -261,7 +264,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = HK;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "@hunk";
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
@@ -293,6 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B49B13601BC43C98006FFEBC /* LaunchScreen.xib in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
@@ -451,6 +455,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -514,6 +519,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SlideMenu3D/SlideMenu3D-Prefix.pch";
 				INFOPLIST_FILE = "SlideMenu3D/SlideMenu3D-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -528,6 +534,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SlideMenu3D/SlideMenu3D-Prefix.pch";
 				INFOPLIST_FILE = "SlideMenu3D/SlideMenu3D-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -550,6 +557,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -569,6 +577,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
