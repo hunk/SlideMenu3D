@@ -9,6 +9,7 @@
 #import "HKAppDelegate.h"
 
 #import "HKMenuView.h"
+#import "HKRightMenu.h"
 #import "HKAlternativeView.h"
 
 @interface HKAppDelegate ()<HKSlideMenu3DControllerDelegate>{
@@ -16,6 +17,8 @@
     HKMenuView *menuVC;
     HKRotationNavigationController *navMain;
     HKAlternativeView *altVC;
+    
+    HKRightMenu *rightMenuVC;
 }
 
 @end
@@ -35,8 +38,13 @@
     menuVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"HKMenuView"];
     menuVC.view.backgroundColor = [UIColor clearColor];
     navMain = (HKRotationNavigationController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HKMainNavController"];
-
     self.slideMenuVC.menuViewController = menuVC;
+    
+    /* */
+    rightMenuVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"HKRightMenuView"];
+    rightMenuVC.view.backgroundColor = [UIColor clearColor];
+    self.slideMenuVC.menuViewController = rightMenuVC;
+    self.slideMenuVC.sideMenu3D = MenuRight;
     
     self.slideMenuVC.mainViewController = navMain;
     

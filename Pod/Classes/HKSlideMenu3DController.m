@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UIPanGestureRecognizer *panGestureRecognizer;
 @property (nonatomic, assign) CGPoint draggingPoint;
 @property (nonatomic, assign) CGFloat distanceOpenMenu;
+@property (nonatomic, assign) CATransform3D tAngleClose;
 
 
 @end
@@ -50,9 +51,9 @@
     _bgImageContainer.backgroundColor = [UIColor redColor];
     
     [_bgImageContainer setTranslatesAutoresizingMaskIntoConstraints:NO];
-    NSArray *imageViewConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[myImageView]|" options:0 metrics:nil views:@{@"myImageView": _bgImageContainer}];
+    NSArray *imageViewConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[bgImage]|" options:0 metrics:nil views:@{@"bgImage": _bgImageContainer}];
     [self.view addConstraints:imageViewConstraints];
-    imageViewConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[myImageView]|" options:0 metrics:nil views:@{@"myImageView": _bgImageContainer}];
+    imageViewConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[bgImage]|" options:0 metrics:nil views:@{@"bgImage": _bgImageContainer}];
     [self.view addConstraints:imageViewConstraints];
     
     
@@ -72,7 +73,8 @@
     [_mainContainer didMoveToParentViewController:self];
     
     [self addPanGestures];
-   
+    
+    self.sideMenu3D = MenuLeft;
     
 }
 
@@ -139,8 +141,34 @@
     _bgImageContainer.contentMode = backgroundImageContentMode;
 }
 
+-(void)setSideMenu3D:(Menu3DSide)sideMenu3D{
+    _sideMenu3D = sideMenu3D;
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    if (_sideMenu3D == MenuLeft) {
+        [self setAnchorPoint:CGPointMake(1.0, 0.5) forView:_menuContainer.view];
+        
+        _tAngleClose = CATransform3DIdentity;
+        _tAngleClose.m34 = 1.0/ -500;
+        _tAngleClose = CATransform3DRotate(_tAngleClose, -35.0f * M_PI / 180.0f, 0, 1, 0);
+        
+        _distanceOpenMenu = fabs(_distanceOpenMenu);
+        
+    }else{
+        [self setAnchorPoint:CGPointMake(0.0, 0.5) forView:_menuContainer.view];
+        
+        _tAngleClose = CATransform3DIdentity;
+        _tAngleClose.m34 = 1.0/ -500;
+        _tAngleClose = CATransform3DRotate(_tAngleClose, 35.0f * M_PI / 180.0f, 0, 1, 0);
+        
+        _distanceOpenMenu = -fabs(_distanceOpenMenu);
+    }
+    
+}
+
 - (void)toggleMenu {
     CGRect fMain = _mainContainer.view.frame;
+    NSLog(@"%f valor",CGRectGetMinX(fMain));
     if (CGRectGetMinX(fMain) == _distanceOpenMenu) {
         [self closeMenu];
     }else{
@@ -148,7 +176,11 @@
     }
 }
 
+
+
+
 -(void)openMenu{
+    
     if ( self.delegate && [self.delegate respondsToSelector:@selector(willOpenMenu)]) {
         [self.delegate willOpenMenu];
     }
@@ -161,10 +193,11 @@
     //menuView in 45
     CALayer *layer = _menuContainer.view.layer;
     layer.zPosition = -1000;
-    CATransform3D t = CATransform3DIdentity;
-    t.m34 = 1.0/ -500;
-    t = CATransform3DRotate(t, -35.0f * M_PI / 180.0f, 0, 1, 0);
-    layer.transform = t;
+//    CATransform3D t = CATransform3DIdentity;
+//    t.m34 = 1.0/ -500;
+////    t = CATransform3DRotate(t, -35.0f * M_PI / 180.0f, 0, 1, 0);
+//    t = CATransform3DRotate(t, 35.0f * M_PI / 180.0f, 0, 1, 0);
+    layer.transform = _tAngleClose;
     _menuContainer.view.alpha = 0.3;
     
     [UIView animateWithDuration:1.0
@@ -230,10 +263,10 @@
                      animations:^{
                          CALayer *layer = _menuContainer.view.layer;
                          layer.zPosition = -1000;
-                         CATransform3D t = CATransform3DIdentity;
-                         t.m34 = 1.0/ -500;
-                         t = CATransform3DRotate(t, -35.0f * M_PI / 180.0f, 0, 1, 0);
-                         layer.transform = t;
+//                         CATransform3D t = CATransform3DIdentity;
+//                         t.m34 = 1.0/ -500;
+//                         t = CATransform3DRotate(t, -35.0f * M_PI / 180.0f, 0, 1, 0);
+                         layer.transform = _tAngleClose;
                          _menuContainer.view.alpha = 0.3;
                      }
                      completion:^(BOOL finished){
@@ -288,13 +321,12 @@
 - (void)panDetected:(UIPanGestureRecognizer *)aPanRecognizer{
     
     CGPoint translation = [aPanRecognizer translationInView:aPanRecognizer.view];
-    CGPoint velocity = [aPanRecognizer velocityInView:aPanRecognizer.view];
     
     if (aPanRecognizer.state == UIGestureRecognizerStateBegan) {
         self.draggingPoint = translation;
     }else if (aPanRecognizer.state == UIGestureRecognizerStateChanged) {
         
-        CGFloat offset = fabs(self.draggingPoint.x - translation.x);
+        CGFloat offset = -(self.draggingPoint.x - translation.x);
         
         if (offset == 0) {
             return;
@@ -302,14 +334,16 @@
         
         self.draggingPoint = translation;
         
-        if (velocity.x <= 0) {
-            offset = -offset;
-        }
         
         CGRect f = _mainContainer.view.frame;
         CGFloat offsetView = f.origin.x + offset;
         CGFloat min = 0;
         CGFloat max = _distanceOpenMenu;
+        
+        if (self.sideMenu3D == MenuRight) {
+            min = _distanceOpenMenu;
+            max = 0;
+        }
         
         if (offsetView <= min) {
             return;
@@ -326,6 +360,10 @@
         // 210 -> 0
         // newAngle= origin.x * 35 / 210
         CGFloat newAngle = (( (_distanceOpenMenu-f.origin.x ) * 35) / _distanceOpenMenu)*-1;
+        
+        if (self.sideMenu3D == MenuRight) {
+            newAngle = -newAngle;
+        }
         
         CALayer *layer = _menuContainer.view.layer;
         CATransform3D t = CATransform3DIdentity;
@@ -345,7 +383,7 @@
         BOOL closeMenu = TRUE;
         CGFloat new3dSeg = 0.3;
         
-        if (fMain.origin.x >= _distanceOpenMenu/2) {
+        if ( (fMain.origin.x >= _distanceOpenMenu/2 && self.sideMenu3D == MenuLeft) || (fMain.origin.x <= _distanceOpenMenu/2 && self.sideMenu3D == MenuRight) ) {
             [self addTapGestures];
             newSeg = (_distanceOpenMenu-fMain.origin.x) / _distanceOpenMenu;
             new3dSeg = ((_distanceOpenMenu-fMain.origin.x) *0.3 ) / _distanceOpenMenu;
@@ -374,6 +412,10 @@
         if (closeMenu) {
             newAngle = -35.0f;
             newAlpha = 0.3;
+        }
+        
+        if (self.sideMenu3D == MenuRight) {
+            newAngle = -newAngle;
         }
         
         [UIView animateWithDuration:new3dSeg
@@ -411,5 +453,28 @@
     return UIInterfaceOrientationMaskAll;
 }
 #endif
+
+#pragma mark aux functions
+-(void)setAnchorPoint:(CGPoint)anchorPoint forView:(UIView *)view
+{
+    CGPoint newPoint = CGPointMake(view.bounds.size.width * anchorPoint.x,
+                                   view.bounds.size.height * anchorPoint.y);
+    CGPoint oldPoint = CGPointMake(view.bounds.size.width * view.layer.anchorPoint.x,
+                                   view.bounds.size.height * view.layer.anchorPoint.y);
+    
+    newPoint = CGPointApplyAffineTransform(newPoint, view.transform);
+    oldPoint = CGPointApplyAffineTransform(oldPoint, view.transform);
+    
+    CGPoint position = view.layer.position;
+    
+    position.x -= oldPoint.x;
+    position.x += newPoint.x;
+    
+    position.y -= oldPoint.y;
+    position.y += newPoint.y;
+    
+    view.layer.position = position;
+    view.layer.anchorPoint = anchorPoint;
+}
 
 @end

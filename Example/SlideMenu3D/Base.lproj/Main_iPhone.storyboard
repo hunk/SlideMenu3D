@@ -134,10 +134,10 @@
             </objects>
             <point key="canvasLocation" x="1331" y="505"/>
         </scene>
-        <!--View Controller-->
+        <!--Right Menu-->
         <scene sceneID="meD-r6-NvI">
             <objects>
-                <viewController id="l74-e2-qL8" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HKRightMenuView" id="l74-e2-qL8" userLabel="Right Menu" customClass="HKRightMenu" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D3N-fc-Xn1"/>
                         <viewControllerLayoutGuide type="bottom" id="LoJ-Yk-Ckn"/>
@@ -145,8 +145,27 @@
                     <view key="view" contentMode="scaleToFill" id="jB3-lf-A3m">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="izB-NS-P6g">
+                                <rect key="frame" x="24" y="20" width="552" height="560"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="l74-e2-qL8" id="GjZ-dw-csu"/>
+                                    <outlet property="delegate" destination="l74-e2-qL8" id="WjC-dl-EKO"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="izB-NS-P6g" firstAttribute="top" secondItem="D3N-fc-Xn1" secondAttribute="bottom" id="0v3-cX-3op"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="izB-NS-P6g" secondAttribute="trailing" constant="4" id="EQZ-ow-mQj"/>
+                            <constraint firstItem="izB-NS-P6g" firstAttribute="leading" secondItem="jB3-lf-A3m" secondAttribute="leadingMargin" constant="4" id="IUc-6T-p3Q"/>
+                            <constraint firstItem="LoJ-Yk-Ckn" firstAttribute="top" secondItem="izB-NS-P6g" secondAttribute="bottom" constant="20" id="uya-zy-bgj"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="izB-NS-P6g" id="5K8-uv-dK3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ytr-DA-tmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

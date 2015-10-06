@@ -6,6 +6,11 @@
 //  Copyright (c) 2015 hunk. All rights reserved.
 //
 
+typedef enum {
+    MenuLeft,
+    MenuRight,
+} Menu3DSide;
+
 #import <UIKit/UIKit.h>
 
 @class HKSlideMenu3DController;
@@ -36,6 +41,7 @@
 @property (nonatomic, strong) UIImage *backgroundImage;
 @property (nonatomic) UIViewContentMode backgroundImageContentMode;
 @property (nonatomic, assign) BOOL enablePan;
+@property (nonatomic) Menu3DSide sideMenu3D;
 
 - (void)toggleMenu;
 

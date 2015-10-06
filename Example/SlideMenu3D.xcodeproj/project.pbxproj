@@ -22,6 +22,7 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		61B62750D6F04C8061E2DB55 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C230AF0BDBF362714B143CA6 /* libPods-Tests.a */; };
 		B411A0A41AD44D7300BE71DB /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B411A0A31AD44D7300BE71DB /* Tests.m */; };
+		B4302FFB1BC44F1C00AEDF83 /* HKRightMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B4302FFA1BC44F1C00AEDF83 /* HKRightMenu.m */; settings = {ASSET_TAGS = (); }; };
 		B43F6DE51B07D4AD002C2EE1 /* HKRotationNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43F6DE41B07D4AD002C2EE1 /* HKRotationNavigationController.m */; };
 		B48C496B1AD341D900C36980 /* HKMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = B48C496A1AD341D900C36980 /* HKMenuView.m */; };
 		B48C496E1AD3511000C36980 /* HKAlternativeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B48C496D1AD3511000C36980 /* HKAlternativeView.m */; };
@@ -68,6 +69,8 @@
 		9BB977ECB6CD5F563CD9BB90 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		AAD3F23540D733AA6CE79EFD /* SlideMenu3D.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SlideMenu3D.podspec; path = ../SlideMenu3D.podspec; sourceTree = "<group>"; };
 		B411A0A31AD44D7300BE71DB /* Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
+		B4302FF91BC44F1C00AEDF83 /* HKRightMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKRightMenu.h; sourceTree = "<group>"; };
+		B4302FFA1BC44F1C00AEDF83 /* HKRightMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKRightMenu.m; sourceTree = "<group>"; };
 		B43F6DE31B07D4AD002C2EE1 /* HKRotationNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKRotationNavigationController.h; sourceTree = "<group>"; };
 		B43F6DE41B07D4AD002C2EE1 /* HKRotationNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKRotationNavigationController.m; sourceTree = "<group>"; };
 		B48C49691AD341D900C36980 /* HKMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKMenuView.h; sourceTree = "<group>"; };
@@ -151,6 +154,8 @@
 				6003F5A6195388D20070C39A /* HKViewController.m */,
 				B48C49691AD341D900C36980 /* HKMenuView.h */,
 				B48C496A1AD341D900C36980 /* HKMenuView.m */,
+				B4302FF91BC44F1C00AEDF83 /* HKRightMenu.h */,
+				B4302FFA1BC44F1C00AEDF83 /* HKRightMenu.m */,
 				B48C496C1AD3511000C36980 /* HKAlternativeView.h */,
 				B48C496D1AD3511000C36980 /* HKAlternativeView.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -382,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B48C49711AD3617B00C36980 /* HKSubViewController.m in Sources */,
+				B4302FFB1BC44F1C00AEDF83 /* HKRightMenu.m in Sources */,
 				B43F6DE51B07D4AD002C2EE1 /* HKRotationNavigationController.m in Sources */,
 				6003F59E195388D20070C39A /* HKAppDelegate.m in Sources */,
 				B48C496E1AD3511000C36980 /* HKAlternativeView.m in Sources */,
