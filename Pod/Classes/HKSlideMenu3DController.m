@@ -143,7 +143,6 @@
 
 -(void)setSideMenu3D:(Menu3DSide)sideMenu3D{
     _sideMenu3D = sideMenu3D;
-    NSLog(@"%s", __PRETTY_FUNCTION__);
     
     if (_sideMenu3D == MenuLeft) {
         [self setAnchorPoint:CGPointMake(1.0, 0.5) forView:_menuContainer.view];
