@@ -18,5 +18,6 @@
 + (HKAppDelegate *)mainDelegate;
 - (void)setFirstView;
 - (void)setSecondView;
+- (void)toogleSideMenu:(BOOL)rightSide;
 
 @end

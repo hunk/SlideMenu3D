@@ -15,6 +15,14 @@
 
 @implementation HKSubViewController
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    BOOL valuePan = [HKAppDelegate mainDelegate].slideMenuVC.enablePan;
+    self.enablePanButton.enabled = !valuePan;
+    self.disablePanButton.enabled = valuePan;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -32,6 +40,9 @@
     NSNumber *some = [NSNumber numberWithInteger:sender.tag];
     BOOL valuePan = [some boolValue];
     [[HKAppDelegate mainDelegate].slideMenuVC setEnablePan:valuePan];
+    
+    self.enablePanButton.enabled = !valuePan;
+    self.disablePanButton.enabled = valuePan;
 }
 
 -(void)willRotateToInterfaceOrientation: (UIInterfaceOrientation)orientation duration:(NSTimeInterval)duration {

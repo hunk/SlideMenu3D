@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface HKViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIButton *enablePanButton;
+@property (strong, nonatomic) IBOutlet UIButton *disablePanButton;
 
 @end

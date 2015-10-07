@@ -167,7 +167,6 @@
 
 - (void)toggleMenu {
     CGRect fMain = _mainContainer.view.frame;
-    NSLog(@"%f valor",CGRectGetMinX(fMain));
     if (CGRectGetMinX(fMain) == _distanceOpenMenu) {
         [self closeMenu];
     }else{
@@ -192,10 +191,6 @@
     //menuView in 45
     CALayer *layer = _menuContainer.view.layer;
     layer.zPosition = -1000;
-//    CATransform3D t = CATransform3DIdentity;
-//    t.m34 = 1.0/ -500;
-////    t = CATransform3DRotate(t, -35.0f * M_PI / 180.0f, 0, 1, 0);
-//    t = CATransform3DRotate(t, 35.0f * M_PI / 180.0f, 0, 1, 0);
     layer.transform = _tAngleClose;
     _menuContainer.view.alpha = 0.3;
     
@@ -262,9 +257,6 @@
                      animations:^{
                          CALayer *layer = _menuContainer.view.layer;
                          layer.zPosition = -1000;
-//                         CATransform3D t = CATransform3DIdentity;
-//                         t.m34 = 1.0/ -500;
-//                         t = CATransform3DRotate(t, -35.0f * M_PI / 180.0f, 0, 1, 0);
                          layer.transform = _tAngleClose;
                          _menuContainer.view.alpha = 0.3;
                      }

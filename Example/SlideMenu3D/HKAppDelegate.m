@@ -37,15 +37,9 @@
     
     menuVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"HKMenuView"];
     menuVC.view.backgroundColor = [UIColor clearColor];
-    navMain = (HKRotationNavigationController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HKMainNavController"];
     self.slideMenuVC.menuViewController = menuVC;
     
-    /* */
-    rightMenuVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"HKRightMenuView"];
-    rightMenuVC.view.backgroundColor = [UIColor clearColor];
-    self.slideMenuVC.menuViewController = rightMenuVC;
-    self.slideMenuVC.sideMenu3D = MenuRight;
-    
+    navMain = (HKRotationNavigationController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HKMainNavController"];
     self.slideMenuVC.mainViewController = navMain;
     
     self.slideMenuVC.backgroundImage = [UIImage imageNamed:@"hill.jpg"];
@@ -126,6 +120,26 @@
         if ( !UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)  ) {
             [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIDeviceOrientationLandscapeLeft] forKey:@"orientation"];
         }
+    }
+}
+
+- (void)toogleSideMenu:(BOOL)rightSide {
+    if (rightSide) {
+        if (!rightMenuVC) {
+            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle: nil];
+            rightMenuVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"HKRightMenuView"];
+            rightMenuVC.view.backgroundColor = [UIColor clearColor];
+        }
+        self.slideMenuVC.menuViewController = rightMenuVC;
+        self.slideMenuVC.sideMenu3D = MenuRight;
+    }else{
+        if (!menuVC) {
+            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle: nil];
+            menuVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"HKMenuView"];
+            menuVC.view.backgroundColor = [UIColor clearColor];
+        }
+        self.slideMenuVC.menuViewController = menuVC;
+        self.slideMenuVC.sideMenu3D = MenuLeft;
     }
 }
 

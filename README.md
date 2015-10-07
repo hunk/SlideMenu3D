@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/SlideMenu3D.svg?style=flat)](http://cocoapods.org/pods/SlideMenu3D)
 
 ## 
-A small class for lateral menu with 3D effect, support tap gesture when el menu is open and tap gesture all time, support device orientation.
+A small class for lateral menu with 3D effect, support tap gesture when el menu is open and tap gesture all time, support device orientation. you can choose the side for the menu.
 
 [![Video](http://img.youtube.com/vi/1UyrVDaNDIg/0.jpg)](https://www.youtube.com/watch?v=1UyrVDaNDIg)
 
@@ -95,6 +95,23 @@ self.slideMenuVC.delegate = self;
 ```
 
 note: if you need more detail check ```HKAppDelegate.m``` and ```HKMenuView.{h/m}```
+
+
+## Menu in right side
+
+in the version 0.1.5 i added support for Menu show in right side, you only have to set me side for the menu.
+
+```objective-c
+self.sideMenu3D = MenuLeft;
+self.sideMenu3D = MenuRight;
+```
+
+The example code has a button who change the side the menu
+
+
+<img src="https://raw.githubusercontent.com/hunk/MediaDemo/master/SlideMenu3D/menu_left.png" alt="Menu in left side" style="width:187px;height:333px">
+
+<img src="https://raw.githubusercontent.com/hunk/MediaDemo/master/SlideMenu3D/menu_right.png" alt="Menu in right side" style="width:187px;height:333px">
 
 
 ## Notes

@@ -10,4 +10,7 @@
 
 @interface HKSubViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIButton *enablePanButton;
+@property (strong, nonatomic) IBOutlet UIButton *disablePanButton;
+
 @end

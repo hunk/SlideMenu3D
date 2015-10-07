@@ -51,14 +51,23 @@
                                     <action selector="panAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="IuJ-DX-72k"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeM-dk-1xY">
+                                <rect key="frame" x="239" y="524" width="123" height="30"/>
+                                <state key="normal" title="Menu in right side"/>
+                                <connections>
+                                    <action selector="toogleMenu:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fCk-Cj-9Fe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bUA-9L-kfq" firstAttribute="top" secondItem="fc2-Hj-6Jb" secondAttribute="bottom" constant="20" id="3j7-Kb-sge"/>
                             <constraint firstItem="YrE-6P-OGh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="5Za-gu-NvN"/>
+                            <constraint firstItem="VeM-dk-1xY" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="LRE-r6-3P8"/>
                             <constraint firstItem="bng-jH-xti" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="PwU-UO-Kvz"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="bng-jH-xti" secondAttribute="bottom" constant="117" id="TOZ-yv-ugT"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="YrE-6P-OGh" secondAttribute="bottom" constant="117" id="Uvq-ga-OmR"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="VeM-dk-1xY" secondAttribute="bottom" constant="46" id="ZoE-3S-RQN"/>
                             <constraint firstAttribute="centerY" secondItem="fc2-Hj-6Jb" secondAttribute="centerY" id="aYb-sv-Om9"/>
                             <constraint firstAttribute="centerX" secondItem="fc2-Hj-6Jb" secondAttribute="centerX" id="nAN-B6-GcB"/>
                             <constraint firstAttribute="centerX" secondItem="bUA-9L-kfq" secondAttribute="centerX" id="wsW-nv-pyL"/>
@@ -72,6 +81,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="disablePanButton" destination="bng-jH-xti" id="avS-LV-0EH"/>
+                        <outlet property="enablePanButton" destination="YrE-6P-OGh" id="Kmu-1m-Neh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -222,6 +235,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Second View" id="W4x-wa-MMf"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="disablePanButton" destination="gFN-16-yCX" id="tJs-5V-C7d"/>
+                        <outlet property="enablePanButton" destination="wXE-Pj-rga" id="voN-jV-7Vz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRC-pO-kan" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
