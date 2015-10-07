@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version          = "0.1.5"
   s.summary          = "A small class for lateral menu with 3D effect."
   s.description      = <<-DESC
-                       A small class for lateral menu with 3D effect.
+                       A small class for lateral menu with 3D effect, support tap gesture when el menu is open and tap gesture all time, support device orientation. you can choose the side for the menu.
 
                        DESC
   s.homepage         = "https://github.com/hunk/SlideMenu3D"
