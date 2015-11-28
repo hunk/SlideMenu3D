@@ -46,6 +46,8 @@
     self.slideMenuVC.backgroundImageContentMode = UIViewContentModeScaleAspectFill;
     self.slideMenuVC.enablePan = NO;
     
+    self.slideMenuVC.distanceOpenMenu = 400.0f;
+    
     //Set delegate methods in currect controller or another class, for example Menu
 //    self.slideMenuVC.delegate = self;
     self.slideMenuVC.delegate = menuVC.self;

@@ -16,7 +16,6 @@
 @property (nonatomic, strong) UIImageView *bgImageContainer;
 @property (nonatomic, strong) UIPanGestureRecognizer *panGestureRecognizer;
 @property (nonatomic, assign) CGPoint draggingPoint;
-@property (nonatomic, assign) CGFloat distanceOpenMenu;
 @property (nonatomic, assign) CATransform3D tAngleClose;
 
 
@@ -38,7 +37,9 @@
 
 - (void)setup {
     
-    _distanceOpenMenu = 210.0f;
+    if (_distanceOpenMenu == 0) {
+        _distanceOpenMenu = 210.0f;
+    }
     
     self.view.backgroundColor = [UIColor blackColor];
     
