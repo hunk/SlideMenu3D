@@ -48,7 +48,7 @@
     _bgImageContainer.contentMode = UIViewContentModeScaleAspectFill;// UIViewContentModeTopLeft;
     _bgImageContainer.layer.zPosition = -2000;
     [self.view addSubview:_bgImageContainer];
-    _bgImageContainer.backgroundColor = [UIColor redColor];
+    _bgImageContainer.backgroundColor = [UIColor clearColor];
     
     [_bgImageContainer setTranslatesAutoresizingMaskIntoConstraints:NO];
     NSArray *imageViewConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[bgImage]|" options:0 metrics:nil views:@{@"bgImage": _bgImageContainer}];
