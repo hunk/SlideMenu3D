@@ -42,6 +42,7 @@ typedef enum {
 @property (nonatomic) UIViewContentMode backgroundImageContentMode;
 @property (nonatomic, assign) BOOL enablePan;
 @property (nonatomic) Menu3DSide sideMenu3D;
+@property (nonatomic, assign) CGFloat distanceOpenMenu;
 
 - (void)toggleMenu;
 
