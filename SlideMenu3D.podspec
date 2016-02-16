@@ -1,13 +1,13 @@
 Pod::Spec.new do |s|
   s.name             = "SlideMenu3D"
-  s.version          = "0.1.5"
+  s.version          = "0.1.6"
   s.summary          = "A small class for lateral menu with 3D effect."
   s.description      = <<-DESC
                        A small class for lateral menu with 3D effect, support tap gesture when el menu is open and tap gesture all time, support device orientation. you can choose the side for the menu.
 
                        DESC
   s.homepage         = "https://github.com/hunk/SlideMenu3D"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.screenshots     = "https://raw.githubusercontent.com/hunk/MediaDemo/master/SlideMenu3D/menu_left.png", "https://raw.githubusercontent.com/hunk/MediaDemo/master/SlideMenu3D/menu_right.png"
   s.license          = 'MIT'
   s.author           = { "@hunk" => "ing.edgar@gmail.com" }
   s.source           = { :git => "https://github.com/hunk/SlideMenu3D.git", :tag => s.version.to_s }

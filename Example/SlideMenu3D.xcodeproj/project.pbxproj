@@ -22,7 +22,7 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		61B62750D6F04C8061E2DB55 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C230AF0BDBF362714B143CA6 /* libPods-Tests.a */; };
 		B411A0A41AD44D7300BE71DB /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B411A0A31AD44D7300BE71DB /* Tests.m */; };
-		B4302FFB1BC44F1C00AEDF83 /* HKRightMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B4302FFA1BC44F1C00AEDF83 /* HKRightMenu.m */; settings = {ASSET_TAGS = (); }; };
+		B4302FFB1BC44F1C00AEDF83 /* HKRightMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B4302FFA1BC44F1C00AEDF83 /* HKRightMenu.m */; };
 		B43F6DE51B07D4AD002C2EE1 /* HKRotationNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43F6DE41B07D4AD002C2EE1 /* HKRotationNavigationController.m */; };
 		B48C496B1AD341D900C36980 /* HKMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = B48C496A1AD341D900C36980 /* HKMenuView.m */; };
 		B48C496E1AD3511000C36980 /* HKAlternativeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B48C496D1AD3511000C36980 /* HKAlternativeView.m */; };
@@ -525,6 +525,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SlideMenu3D/SlideMenu3D-Prefix.pch";
 				INFOPLIST_FILE = "SlideMenu3D/SlideMenu3D-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -540,6 +541,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SlideMenu3D/SlideMenu3D-Prefix.pch";
 				INFOPLIST_FILE = "SlideMenu3D/SlideMenu3D-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

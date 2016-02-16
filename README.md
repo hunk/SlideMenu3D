@@ -113,6 +113,13 @@ The example code has a button who change the side the menu
 
 <img src="https://raw.githubusercontent.com/hunk/MediaDemo/master/SlideMenu3D/menu_right.png" alt="Menu in right side" style="width:187px;height:333px">
 
+## Distance open menu
+
+You can set the distance for the open menu (thanks @andres-ciano)
+
+```objective-c
+self.sideMenu3D.distanceOpenMenu = 100.0f;
+```
 
 ## Notes
 After version 0.1.2, we add hierarchy for container’s view, the rotation depends of you `mainViewController`.
